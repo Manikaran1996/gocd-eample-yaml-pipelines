@@ -3,8 +3,6 @@ pipelines:
   test_pipeline1:
     environment_variables:
       DEPLOYMENT: test
-    secure_variables:
-      ENV_PASSWORD: "test-password"
     group: defaultGroup
     materials:
       git_repo:
