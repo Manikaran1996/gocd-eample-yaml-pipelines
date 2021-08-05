@@ -15,9 +15,9 @@ pipelines:
             tasks:
             - exec:
                 command: ./scripts/fail_script.sh
-                runif: failed
+                run_if: failed
             - exec:
-                runif: any
+                run_if: any
                 command: ./scripts/backup.sh
             - exec:
                 command: ./scripts/run.sh
