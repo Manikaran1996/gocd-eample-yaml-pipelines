@@ -22,19 +22,18 @@ pipelines:
                 command: bash
                 arguments:
                 - "-c"
-                - "echo \"Failing this task.\"; exit 1"
-            - exec: # this task will run irrespective of if previous fails or succeeds
-                run_if: any
-                command: ./scripts/run.sh
+                - "echo \"Does this task run??\""
             - exec:
                 run_if: failed
                 command: bash
                 arguments:
                 - "-c"
-                - "echo \"This task runs if and only if previous failed. The previous task should have succeeded. Checking if subsequent tasks run. \" "
+                - "echo \"Running it if the job's status is failed.\""
             - exec:
+                run_if: any
                 command: bash
                 arguments:
                 - "-c"
-                - "echo \"Does this task run??\""
+                - "echo \"This task runs irrespective of job has succeeded or failed.\" "
+
 
