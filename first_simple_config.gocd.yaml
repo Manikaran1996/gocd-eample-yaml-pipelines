@@ -11,11 +11,11 @@ pipelines:
         git: https://github.com/Manikaran1996/gocd-test-sample-project.git
         branch: master
     stages:
-    - build:
-      clean_workspace: true
+    - build-stage:
       jobs:
-        tasks:
-        - exec:
-            command: ./scripts/run.sh
-            arguments:
-            - Runtime args
+        - exec-job:
+          tasks:
+          - exec:
+              command: ./scripts/run.sh
+              arguments:
+              - Runtime args
