@@ -17,5 +17,3 @@ pipelines:
               tasks:
               - exec:
                   command: ./scripts/run.sh
-                  arguments:
-                  - Runtime args
