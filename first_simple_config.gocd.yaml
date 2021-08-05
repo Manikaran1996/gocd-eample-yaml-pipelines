@@ -12,10 +12,10 @@ pipelines:
         branch: master
     stages:
     - build-stage:
-      jobs:
-        - exec-job:
-          tasks:
-          - exec:
-              command: ./scripts/run.sh
-              arguments:
-              - Runtime args
+        jobs:
+          - exec-job:
+              tasks:
+              - exec:
+                  command: ./scripts/run.sh
+                  arguments:
+                  - Runtime args
