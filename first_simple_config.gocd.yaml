@@ -13,7 +13,9 @@ pipelines:
     stages:
     - build-stage:
         jobs:
-          - exec-job:
-              tasks:
-              - exec:
-                  command: ./scripts/run.sh
+          exec-job:
+            tasks:
+            - exec:
+                command: ./scripts/run.sh
+                arguments:
+                - Runtime args
