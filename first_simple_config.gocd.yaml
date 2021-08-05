@@ -1,25 +1,25 @@
 format_version: 10
 environments:
-	testing:
-		environment_variables:
-			DEPLOYMENT: test
-		secure_variables:
-			ENV_PASSWORD: "test-password"
-		pipelines:
-		- build-testing
+  testing:
+    environment_variables:
+      DEPLOYMENT: test
+    secure_variables:
+      ENV_PASSWORD: "test-password"
+    pipelines:
+    - build-testing
 pipelines:
-	test_pipeline1:
-		group: test
-		materials:
-			git_repo:
-				git: https://github.com/Manikaran1996/gocd-test-sample-project.git
-				branch: master
-		stages:
-		- build:
-			clean_workspace: true
-			jobs:
-				tasks:
-				- exec:
-					command: ./scripts/run.sh
-					arguments:
-					- Runtime args
+  test_pipeline1:
+    group: test
+    materials:
+      git_repo:
+        git: https://github.com/Manikaran1996/gocd-test-sample-project.git
+        branch: master
+    stages:
+    - build:
+      clean_workspace: true
+      jobs:
+        tasks:
+        - exec:
+          command: ./scripts/run.sh
+          arguments:
+          - Runtime args
