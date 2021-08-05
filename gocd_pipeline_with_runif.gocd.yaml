@@ -1,0 +1,23 @@
+format_version: 10
+pipelines:
+  test_pipeline_with_runif:
+    environment_variables:
+      DEPLOYMENT: test
+    group: defaultGroup
+    materials:
+      git_repo:
+        git: https://github.com/Manikaran1996/gocd-test-sample-project.git
+        branch: master
+    stages:
+    - build-stage:
+        jobs:
+          exec-jobs:
+            tasks:
+            - exec:
+                command: ./scripts/fail_script.sh
+            - exec:
+                runif: failed
+                command: ./scripts/backup.sh
+            - exec:
+                runif: any
+                command: ./scripts/run.sh
