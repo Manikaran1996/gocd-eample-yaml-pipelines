@@ -5,7 +5,7 @@ pipelines:
       DEPLOYMENT: test
     secure_variables:
       ENV_PASSWORD: "test-password"
-    group: test
+    group: defaultGroup
     materials:
       git_repo:
         git: https://github.com/Manikaran1996/gocd-test-sample-project.git
@@ -16,6 +16,6 @@ pipelines:
       jobs:
         tasks:
         - exec:
-          command: ./scripts/run.sh
-          arguments:
-          - Runtime args
+            command: ./scripts/run.sh
+            arguments:
+            - Runtime args
