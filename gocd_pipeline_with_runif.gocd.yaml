@@ -15,9 +15,26 @@ pipelines:
             tasks:
             - exec:
                 command: ./scripts/fail_script.sh
-            - exec:
+            - exec: # this task will run if the prev fails
                 run_if: failed
                 command: ./scripts/backup.sh
             - exec:
+                command: bash
+                arguments:
+                - "-c"
+                - "echo \"Failing this task.\"; exit 1"
+            - exec: # this task will run irrespective of if previous fails or succeeds
                 run_if: any
                 command: ./scripts/run.sh
+            - exec:
+                run_if: failed
+                command: bash
+                arguments:
+                - "-c"
+                - "echo \"This task runs if and only if previous failed. The previous task should have succeeded. Checking if subsequent tasks run. \" "
+            - exec:
+                command: bash
+                arguments:
+                - "-c"
+                - "echo \"Does this task run??\""
+
